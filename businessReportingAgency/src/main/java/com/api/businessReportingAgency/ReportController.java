@@ -3,14 +3,12 @@ package com.api.businessReportingAgency;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RestController("report")
+@RestController()
+@RequestMapping("/report")
 public class ReportController {
 
     @Autowired
@@ -26,4 +24,10 @@ public class ReportController {
         modelMapper.map(reportService.saveReport(newReport), EntryReportDto.class);
 
     }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteReport (@PathVariable Long id){
+        reportService.deleteReport(id);
+    }
+
 }
