@@ -32,14 +32,20 @@ public class ReportService {
         return reportOptional.get();
     }
 
-    public Report displayAllReports() {
+    public List<Report> displayAllReports() {
         List<Report> reportList = (List<Report>) reportRepository.findAll();
         if (reportList.isEmpty()) {
             throw new ReportNotFound("There are no reports");
         }
-        return (Report) reportList;
+        return reportList;
     }
+    public Report apdateReport(String cnpj, PartialReportDto reportNew){
+        Report report = displayFullReport(cnpj);
+        report.setDescricao(reportNew.getDescricao());
+        report.setPeriodo(reportNew.getPeriodo());
+        return reportRepository.save(report);
 
+    }
 }
 
 
