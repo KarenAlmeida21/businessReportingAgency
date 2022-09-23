@@ -1,5 +1,6 @@
-package com.api.businessReportingAgency;
+package com.api.businessReportingAgency.dtos;
 
+import com.api.businessReportingAgency.enums.Period;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,6 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 
 @Getter
@@ -24,5 +24,5 @@ public class EntryReportDto {
          //   "If there is no description, enter empty")
     private String descricao;
     @NotNull
-    private Periodo periodo;
+    private Period periodo;
 }

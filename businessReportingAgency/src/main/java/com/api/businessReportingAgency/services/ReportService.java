@@ -1,5 +1,9 @@
-package com.api.businessReportingAgency;
+package com.api.businessReportingAgency.services;
 
+import com.api.businessReportingAgency.exceptions.ReportNotFound;
+import com.api.businessReportingAgency.repositories.ReportRepository;
+import com.api.businessReportingAgency.dtos.PartialReportDto;
+import com.api.businessReportingAgency.models.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

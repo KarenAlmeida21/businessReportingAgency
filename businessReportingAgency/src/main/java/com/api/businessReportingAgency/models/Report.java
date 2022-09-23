@@ -1,5 +1,6 @@
-package com.api.businessReportingAgency;
+package com.api.businessReportingAgency.models;
 
+import com.api.businessReportingAgency.enums.Period;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,5 @@ public class Report {
     private Long id;
     private String cnpj;
     private String descricao;
-    private Periodo periodo;
+    private Period periodo;
 }

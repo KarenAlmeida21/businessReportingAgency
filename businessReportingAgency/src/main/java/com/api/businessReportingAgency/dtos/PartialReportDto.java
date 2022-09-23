@@ -1,5 +1,6 @@
-package com.api.businessReportingAgency;
+package com.api.businessReportingAgency.dtos;
 
+import com.api.businessReportingAgency.enums.Period;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,5 @@ public class PartialReportDto {
     @NotBlank
     private String descricao;
     @NotBlank
-    private Periodo periodo;
+    private Period periodo;
 }
