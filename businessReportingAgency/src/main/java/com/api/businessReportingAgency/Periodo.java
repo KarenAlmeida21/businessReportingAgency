@@ -1,5 +1,5 @@
 package com.api.businessReportingAgency;
 
 public enum Periodo {
-    ANUAL, SEMESTRAL, MENSAL
+    YEARLY, SEMIANNUAL, MONTHLY
 }
