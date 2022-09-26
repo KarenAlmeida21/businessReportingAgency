@@ -1,4 +1,4 @@
-package com.api.businessReportingAgency.report;
+package com.api.businessReportingAgency.config;
 
 import lombok.Getter;
 import lombok.Setter;

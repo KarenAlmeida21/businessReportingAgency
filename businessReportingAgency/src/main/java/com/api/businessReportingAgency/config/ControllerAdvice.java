@@ -1,6 +1,7 @@
-package com.api.businessReportingAgency.report;
+package com.api.businessReportingAgency.config;
 
 
+import com.api.businessReportingAgency.report.ReportNotFound;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

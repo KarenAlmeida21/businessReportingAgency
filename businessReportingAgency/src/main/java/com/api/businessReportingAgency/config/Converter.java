@@ -1,4 +1,4 @@
-package com.api.businessReportingAgency.report;
+package com.api.businessReportingAgency.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
