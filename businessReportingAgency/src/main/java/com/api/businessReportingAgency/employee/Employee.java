@@ -1,6 +1,5 @@
-package com.api.businessReportingAgency.models;
+package com.api.businessReportingAgency.employee;
 
-import com.api.businessReportingAgency.enums.Period;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +16,10 @@ import javax.persistence.Id;
 @NoArgsConstructor
 
 @Entity
-public class Report {
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String cnpj;
-    private String descricao;
-    private Period periodo;
+    private String name;
+    private String cpf;
 }

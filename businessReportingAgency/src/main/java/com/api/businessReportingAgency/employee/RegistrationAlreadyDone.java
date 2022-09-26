@@ -1,4 +1,4 @@
-package com.api.businessReportingAgency.exceptions;
+package com.api.businessReportingAgency.employee;
 
 public class RegistrationAlreadyDone extends RuntimeException {
 

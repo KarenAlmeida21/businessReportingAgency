@@ -1,6 +1,6 @@
-package com.api.businessReportingAgency.componentes;
+package com.api.businessReportingAgency.report;
 
-import com.api.businessReportingAgency.exceptions.ReportNotFound;
+
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,6 +22,7 @@ public class ControllerAdvice {
 
         for (FieldError fieldError : exception.getFieldErrors()) {
             ErrorMessage errorMessage = new ErrorMessage(fieldError.getDefaultMessage());
+
             error.add(errorMessage);
         }
 

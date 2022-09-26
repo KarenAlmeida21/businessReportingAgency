@@ -1,9 +1,6 @@
-package com.api.businessReportingAgency.services;
+package com.api.businessReportingAgency.report;
 
-import com.api.businessReportingAgency.exceptions.ReportNotFound;
-import com.api.businessReportingAgency.repositories.ReportRepository;
-import com.api.businessReportingAgency.dtos.PartialReportDto;
-import com.api.businessReportingAgency.models.Report;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +8,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+
 public class ReportService {
     @Autowired
     ReportRepository reportRepository;
 
+
     public Report saveReport(Report report) {
+        if (reportRepository.existsByCnpj(report.getCnpj())) {
+            throw new ReportAlreadyFiled("Report already filed");
+        }
         reportRepository.save(report);
         return report;
     }
@@ -43,7 +45,8 @@ public class ReportService {
         }
         return reportList;
     }
-    public Report apdateReport(String cnpj, PartialReportDto reportNew){
+
+    public Report apdateReport(String cnpj, PartialReportDto reportNew) {
         Report report = displayFullReport(cnpj);
         report.setDescricao(reportNew.getDescricao());
         report.setPeriodo(reportNew.getPeriodo());

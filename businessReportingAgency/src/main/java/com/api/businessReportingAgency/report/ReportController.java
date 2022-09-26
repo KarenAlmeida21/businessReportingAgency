@@ -1,10 +1,5 @@
-package com.api.businessReportingAgency.controllers;
+package com.api.businessReportingAgency.report;
 
-import com.api.businessReportingAgency.dtos.EntryReportDto;
-import com.api.businessReportingAgency.dtos.OutReport;
-import com.api.businessReportingAgency.dtos.PartialReportDto;
-import com.api.businessReportingAgency.models.Report;
-import com.api.businessReportingAgency.services.ReportService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

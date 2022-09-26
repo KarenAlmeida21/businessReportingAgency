@@ -1,6 +1,6 @@
-package com.api.businessReportingAgency.repositories;
+package com.api.businessReportingAgency.report;
 
-import com.api.businessReportingAgency.models.Report;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
@@ -8,4 +8,6 @@ import java.util.Optional;
 @Repository
 public interface ReportRepository extends CrudRepository<Report, Long> {
     Optional<Report>findByCnpj(String cnpj);
+
+    boolean existsByCnpj(String cnpj);
 }

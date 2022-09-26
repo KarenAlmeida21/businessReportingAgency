@@ -1,4 +1,4 @@
-package com.api.businessReportingAgency.exceptions;
+package com.api.businessReportingAgency.report;
 
 public class ReportNotFound extends RuntimeException {
     public ReportNotFound(String message) {

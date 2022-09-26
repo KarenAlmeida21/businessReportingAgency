@@ -1,6 +1,6 @@
-package com.api.businessReportingAgency.dtos;
+package com.api.businessReportingAgency.report;
 
-import com.api.businessReportingAgency.enums.Period;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

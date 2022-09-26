@@ -1,4 +1,4 @@
-package com.api.businessReportingAgency.models;
+package com.api.businessReportingAgency.report;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,10 +16,11 @@ import javax.persistence.Id;
 @NoArgsConstructor
 
 @Entity
-public class Employee {
+public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String cpf;
+    private String cnpj;
+    private String descricao;
+    private Period periodo;
 }

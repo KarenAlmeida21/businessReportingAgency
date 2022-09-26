@@ -1,10 +1,5 @@
-package com.api.businessReportingAgency.services;
+package com.api.businessReportingAgency.employee;
 
-import com.api.businessReportingAgency.dtos.EntryEmployeeDto;
-import com.api.businessReportingAgency.exceptions.EmployeeNotFound;
-import com.api.businessReportingAgency.exceptions.RegistrationAlreadyDone;
-import com.api.businessReportingAgency.models.Employee;
-import com.api.businessReportingAgency.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +11,7 @@ public class EmployeeService {
     EmployeeRepository employeeRepository;
 
     public Employee saveEmployee(Employee employee) {
-        if (employeeRepository.existsById(employee.getId())) {
+        if (employeeRepository.existsByCpf(employee.getCpf())) {
             throw new RegistrationAlreadyDone("Registration Already Done");
         } else {
             employeeRepository.save(employee);
@@ -42,8 +37,8 @@ public class EmployeeService {
         return employeeGet;
     }
 
-    public Employee UpdateEmployee(Long id, EntryEmployeeDto employeeNew){
-        Employee employee= displayById(id);
+    public Employee UpdateEmployee(Long id, EntryEmployeeDto employeeNew) {
+        Employee employee = displayById(id);
         employee.setName(employeeNew.getName());
         employee.setCpf(employeeNew.getCpf());
         return employeeRepository.save(employee);
