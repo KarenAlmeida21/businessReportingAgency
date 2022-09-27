@@ -1,12 +1,14 @@
 package com.api.businessReportingAgency.manager;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 @Getter
 @Setter
@@ -16,11 +18,9 @@ import javax.persistence.Id;
 @Entity
 public class Manager {
     @Id
-    private CPF cpf;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String cpf;
     private String name;
-    private String setor;
-
-
-
-
+    private Sector setor;
 }

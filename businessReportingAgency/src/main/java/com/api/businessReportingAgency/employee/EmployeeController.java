@@ -36,10 +36,10 @@ public class EmployeeController {
     }
 
     @PutMapping("update/{id}")
-    public OutEmployeeDto UpdateEmployee(@PathVariable Long id,
+    public EntryEmployeeDto UpdateEmployee(@PathVariable Long id,
                                          @RequestBody EntryEmployeeDto entryEmployeeDto) {
         Employee employee = employeeService.UpdateEmployee(id, entryEmployeeDto);
-        return modelMapper.map(employee, OutEmployeeDto.class);
+        return modelMapper.map(employee, EntryEmployeeDto.class);
     }
 
 }
