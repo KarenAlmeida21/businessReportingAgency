@@ -11,13 +11,12 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/manager")
 public class ManagerController {
+
     @Autowired
     ModelMapper modelMapper;
+
     @Autowired
     ManagerService managerService;
-
-
-
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -26,7 +25,6 @@ public class ManagerController {
         modelMapper.map(managerService.saveManager(newManager), EntryManagerDto.class);
 
     }
-
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

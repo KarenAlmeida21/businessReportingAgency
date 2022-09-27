@@ -1,10 +1,8 @@
 package com.api.businessReportingAgency.manager;
 
-import com.api.businessReportingAgency.report.ReportAlreadyFiled;
-import com.api.businessReportingAgency.report.ReportNotFound;
+import com.api.businessReportingAgency.employee.RegistrationAlreadyDone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -16,19 +14,17 @@ public class ManagerService {
 
     public Manager saveManager(Manager manager) {
         if (managerRepository.existsByCpf(manager.getCpf())) {
-            throw new ReportAlreadyFiled("Report already filed");
+            throw new RegistrationAlreadyDone("Registration Already Done");
         }
         managerRepository.save(manager);
         return manager;
     }
 
 
-
-
     public void deleteManager(Long id) {
         Optional<Manager> manager = managerRepository.findById(id);
         if (manager.isEmpty()) {
-            throw new ReportNotFound("ID NOT FOUND");
+            throw new ManagerNotFound("ID NOT FOUND");
         }
         managerRepository.deleteById(id);
     }
@@ -49,4 +45,5 @@ public class ManagerService {
         manager.setSetor(managerNew.getSetor());
         return managerRepository.save(manager);
     }
+
 }
