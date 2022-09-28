@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class OutEmployeeDto {
     private Long id;
-    private String name;
+    private String username;
     private String cpf;
 }

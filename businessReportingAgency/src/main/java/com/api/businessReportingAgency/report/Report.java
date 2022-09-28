@@ -1,14 +1,12 @@
 package com.api.businessReportingAgency.report;
 
+import com.api.businessReportingAgency.report.Period;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -22,5 +20,7 @@ public class Report {
     private Long id;
     private String cnpj;
     private String descricao;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, unique = true)
     private Period periodo;
 }

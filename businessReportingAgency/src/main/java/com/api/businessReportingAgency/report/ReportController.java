@@ -3,6 +3,7 @@ package com.api.businessReportingAgency.report;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -19,6 +20,8 @@ public class ReportController {
     @Autowired
     private ModelMapper modelMapper;
 
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void generateReport(@RequestBody @Valid EntryReportDto reportDto) {
@@ -26,19 +29,21 @@ public class ReportController {
         modelMapper.map(reportService.saveReport(newReport), EntryReportDto.class);
 
     }
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteReport(@PathVariable Long id) {
         reportService.deleteReport(id);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping("cnpj/{cnpj}")
     public OutReport displayReportByCnpj(@PathVariable String cnpj) {
         Report report = reportService.displayFullReport(cnpj);
         return modelMapper.map(report, OutReport.class);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping("display")
     public List<OutReport> displayAllReports() {
         List<OutReport> userList = new ArrayList<>();
@@ -49,6 +54,7 @@ public class ReportController {
         return userList;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("cnpj/{cnpj}")
     public PartialReportDto updateReport(@PathVariable String cnpj,
                                          @RequestBody PartialReportDto partialReportDto) {

@@ -3,6 +3,7 @@ package com.api.businessReportingAgency.employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -10,6 +11,7 @@ public class EmployeeService {
     @Autowired
     EmployeeRepository employeeRepository;
 
+@Transactional
     public Employee saveEmployee(Employee employee) {
         if (employeeRepository.existsByCpf(employee.getCpf())) {
             throw new RegistrationAlreadyDone("Registration Already Done");
@@ -39,8 +41,10 @@ public class EmployeeService {
 
     public Employee UpdateEmployee(Long id, EntryEmployeeDto employeeNew) {
         Employee employee = displayById(id);
-        employee.setName(employeeNew.getName());
+        employee.setUsername(employeeNew.getUsername());
         employee.setCpf(employeeNew.getCpf());
+        employee.setPassword(employeeNew.getPassword());
+        employee.setRoles(employeeNew.getRoles());
         return employeeRepository.save(employee);
 
     }
