@@ -1,7 +1,7 @@
 # businessReportingAgency
 ## API PARA GERENCIAMENTO DE RELATÓRIOS
 
- <p> DEPENDÊNCIAS:</p>
+  ### DEPENDÊNCIAS:
 - modelmapper
 - data_jpa
 - validation
