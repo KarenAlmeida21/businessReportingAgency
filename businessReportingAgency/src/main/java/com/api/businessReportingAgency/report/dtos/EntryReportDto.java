@@ -14,8 +14,6 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class EntryReportDto {
 
     @NotBlank
