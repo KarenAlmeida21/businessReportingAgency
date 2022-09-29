@@ -1,10 +1,9 @@
 package com.api.businessReportingAgency.config;
 
-
-import com.api.businessReportingAgency.employee.EmployeeNotFound;
-import com.api.businessReportingAgency.employee.RegistrationAlreadyDone;
-import com.api.businessReportingAgency.report.ReportAlreadyFiled;
-import com.api.businessReportingAgency.report.ReportNotFound;
+import com.api.businessReportingAgency.employee.exceptions.EmployeeNotFound;
+import com.api.businessReportingAgency.employee.exceptions.RegistrationAlreadyDone;
+import com.api.businessReportingAgency.report.exceptions.ReportAlreadyFiled;
+import com.api.businessReportingAgency.report.exceptions.ReportNotFound;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
